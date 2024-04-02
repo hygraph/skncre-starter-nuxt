@@ -14,6 +14,13 @@ export default defineNuxtConfig({
     '/pdp/*': { isr: true },
   },
 
+  runtimeConfig: {
+    ctpClientId: process.env.CTP_CLIENT_ID,
+    ctpClientSecret: process.env.CTP_CLIENT_SECRET,
+    ctpUrl: process.env.CTP_URL,
+    ctpProject: process.env.CTP_PROJECT
+  },
+
   googleFonts: {
     families: {
       "Plus+Jakarta+Sans": [700],

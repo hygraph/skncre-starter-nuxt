@@ -57,22 +57,24 @@ query Page($slug: String!, $stage: Stage! = PUBLISHED) {
           image {
             url
           }
-          productId
           title
           url
-          product {
-            description
-            id
-            images {
-              alt
-              url
+          commercetoolsProductId
+          commercetoolsProduct {
+            masterData {
+              current {
+                name(locale: "en-GB")
+                description(locale: "en-GB")
+                allVariants {
+                  id
+                  images {
+                    url
+                    label
+                  }
+                  sku
+                }
+              }
             }
-            ingredients
-            price
-            name
-            shortDescription
-            slug
-            stock
           }
         }
       }

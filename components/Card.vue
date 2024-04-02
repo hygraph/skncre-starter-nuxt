@@ -27,14 +27,16 @@ defineProps(["image", "title", "url", "cta"]);
         height="500"
       />
 
-      <button class="cta absolute bottom-4 right-4">{{ cta }}</button>
+      <button class="cta absolute bottom-4 right-4" v-if="cta">
+        {{ cta }}
+      </button>
       <div class="absolute top-6 md:top-auto md:-bottom-6 left-8">
         <h3>
           <span
-            class="block text-primary font-bold font-title text-4xl md:text-6xl"
+            class="block text-primary font-bold font-title text-4xl md:text-5xl"
             >your</span
           ><span
-            class="block text-dark font-bold font-title text-3xl sm:text-4xl md:text-6xl sm:ml-8 sm:-mt-2"
+            class="block text-dark font-bold font-title text-3xl sm:text-4xl md:text-5xl sm:ml-8 sm:-mt-2"
             >{{ title }}</span
           >
         </h3>

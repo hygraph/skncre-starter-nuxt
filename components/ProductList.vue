@@ -1,7 +1,7 @@
 <script setup>
 const props = defineProps(["title", "relatedProductList"]);
 const products = computed(() => {
-  return props.relatedProductList.relatedProducts?.products.map((product) => {
+  return props.relatedProductList?.relatedProducts?.products.map((product) => {
     return {
       id: product.id,
       image: product.images[0].url,
@@ -14,6 +14,7 @@ const products = computed(() => {
 
 <template>
   <section class="bg-tertiary" v-if="products">
+    <pre>{{ title }}</pre>
     <h3
       v-if="title"
       class="text-5xl pt-12 mb-12 font-bold font-title text-center"
