@@ -5,15 +5,13 @@ defineProps(["image", "title", "items"]);
 
 <template>
   <section class="relative">
-    <NuxtImg
-      provider="hygraph"
+    <img
       :src="image.url"
       class="absolute h-full w-full object-cover"
       width="2880"
       height="1956"
-      :quality="90"
-      sizes="sm:100vw"
       :alt="title"
+      loading="lazy"
     />
 
     <div class="max-w-2xl px-12 py-24 md:px-24 md:py-36 relative">

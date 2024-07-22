@@ -1,7 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', 'nuxt-graphql-client', '@nuxtjs/google-fonts', '@nuxt/image'],
+  modules: ['@nuxtjs/tailwindcss', 'nuxt-graphql-client', '@nuxtjs/google-fonts'],
+
   app: {
     head: {
       htmlAttrs: {
@@ -9,16 +10,10 @@ export default defineNuxtConfig({
       },
     }
   },
+
   routeRules: {
     '/': { isr: true },
     '/pdp/*': { isr: true },
-  },
-
-  runtimeConfig: {
-    ctpClientId: process.env.CTP_CLIENT_ID,
-    ctpClientSecret: process.env.CTP_CLIENT_SECRET,
-    ctpUrl: process.env.CTP_URL,
-    ctpProject: process.env.CTP_PROJECT
   },
 
   googleFonts: {
@@ -28,11 +23,5 @@ export default defineNuxtConfig({
     }
   },
 
-  image: {
-    providers: {
-      hygraph: {
-        baseurl: "https://media.graphassets.com"
-      }
-    }
-  }
+  compatibilityDate: '2024-07-22'
 })

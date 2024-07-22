@@ -14,7 +14,12 @@ query Pdp($slug: String!, $stage: Stage! = PUBLISHED) {
         id
         title
         image {
-          url
+          url(
+            transformation: {
+              document: { output: { format: webp } }
+              image: { resize: { width: 2880, height: 1264, fit: max } }
+            }
+          )
         }
         items {
           __typename
@@ -28,7 +33,12 @@ query Pdp($slug: String!, $stage: Stage! = PUBLISHED) {
         cta
         description
         image {
-          url
+          url(
+            transformation: {
+              document: { output: { format: webp } }
+              image: { resize: { width: 768, height: 510, fit: max } }
+            }
+          )
         }
         title
         url
@@ -36,41 +46,40 @@ query Pdp($slug: String!, $stage: Stage! = PUBLISHED) {
       ... on ProductList {
         __typename
         title
-      }
-    }
-    commercetoolsProduct {
-      id
-      masterData {
-        current {
-          slug(locale: "en-GB")
-          metaTitle(locale: "en-GB")
-          metaDescription(locale: "en-GB")
-          name(locale: "en-GB")
-          description(locale: "en-GB")
-          categories {
-            name(locale: "en-GB")
-          }
-          allVariants {
-            id
-            attributesRaw {
-              name
-              value
-            }
-            images {
-              url
-              label
-            }
-            price(currency: "EUR") {
-              value {
-                type
-                currencyCode
-                centAmount
-                fractionDigits
+        relatedProductList {
+          relatedProductId
+          relatedProducts {
+            products {
+              description
+              id
+              images {
+                alt
+                url
               }
+              ingredients
+              name
+              price
+              shortDescription
+              slug
+              stock
             }
-            sku
           }
         }
+      }
+    }
+
+    product {
+      id
+      slug
+      name
+      price
+      ingredients
+      shortDescription
+      description
+      stock
+      images {
+        alt
+        url
       }
     }
   }

@@ -3,15 +3,14 @@ defineProps(["title", "description", "image"]);
 </script>
 <template>
   <section class="md:aspect-[1440/632] relative">
-    <NuxtImg
-      provider="hygraph"
+    <img
       :src="image.url"
       class="md:absolute"
       width="2880"
       height="1264"
-      :quality="90"
-      sizes="sm:100vw"
       :alt="title"
+      loading="eager"
+      fetchpriority="high"
     />
 
     <div

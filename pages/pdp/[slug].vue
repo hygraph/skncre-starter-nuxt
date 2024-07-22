@@ -8,7 +8,7 @@ useOgtags(product);
 <template>
   <template>
     <RenderPage :data="product">
-      <ProductDetail :product="product.commercetoolsProduct" />
+      <ProductDetail :product="product.product" />
     </RenderPage>
   </template>
 </template>
